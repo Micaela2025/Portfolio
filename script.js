@@ -1,16 +1,17 @@
 
 function copiarAlPortapapeles(texto) {
-
+  // Si el navegador es moderno, usamos la API nativa
   if (navigator.clipboard && navigator.clipboard.writeText) {
+    // CORRECCIÓN: Agregamos "return" y nos aseguramos de que devuelva la promesa
     return navigator.clipboard.writeText(texto);
   }
 
-  
+  // Plan B para navegadores viejos o entornos sin HTTPS seguro
   return new Promise((resolve, reject) => {
     try {
       const textarea = document.createElement('textarea');
       textarea.value = texto;
-      // Evitar que afecte el layout:
+      
       textarea.style.position = 'fixed';
       textarea.style.left = '-9999px';
       document.body.appendChild(textarea);
@@ -43,7 +44,6 @@ function configurarBotonEmail() {
       return;
     }
 
-    // Asegurarse que el mensaje esté limpio al iniciar
     mensaje.textContent = '';
 
     boton.addEventListener('click', () => {
@@ -54,16 +54,16 @@ function configurarBotonEmail() {
           boton.textContent = '¡Copiado!';
           boton.disabled = true;
 
-          // pequeña animación visual: añadir clase si querés (opcional)
+          
           setTimeout(() => {
             mensaje.textContent = '';
-            boton.textContent = 'Copiar Correo';
+            boton.textContent = 'Copiar Correo Electrónico'; // Coincide con tu HTML nuevo
             boton.disabled = false;
           }, 3000);
         })
         .catch(err => {
           console.error('Error al copiar:', err);
-          mensaje.textContent = `Error: copialo manualmente: ${emailCompleto}`;
+          mensaje.textContent = `Error, cópialo manualmente: ${emailCompleto}`;
         });
     });
   } catch (err) {
@@ -71,7 +71,7 @@ function configurarBotonEmail() {
   }
 }
 
-// Usar DOMContentLoaded para garantizar que el DOM esté listo
+// Inicia la configuración cuando el HTML esté totalmente cargado
 document.addEventListener('DOMContentLoaded', configurarBotonEmail);
 
 

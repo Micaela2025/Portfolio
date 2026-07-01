@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #6c63ff;
+    --primary-color: #38bdf8;
     --dark-bg: #121212;
     --darker-bg: #0a0a0a;
     --light-text: #f5f5f5;
@@ -7,8 +7,6 @@
     --card-bg: #1e1e1e;
     --border-color: #2d2d2d;
     --transition: all .3s ease;
-
-
 }
 
 * {
@@ -23,7 +21,7 @@ html {
 }
 
 body {
-    font-family: 'Segeo UI' , 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Corregido Segeo a Segoe */
     background-color: var(--dark-bg);
     color: var(--light-text);
     line-height: 1.6;
@@ -62,7 +60,6 @@ header {
     padding: 1rem 5%;
     max-width: 1400px;
     margin: 0 auto;
-
 }
 
 .logo {
@@ -142,9 +139,9 @@ section {
 }
 
 .btn:hover {
-    background-color: darkmagenta;
+    background-color: #0ea5e9;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba( 108, 99, 255, 0.3);
+    box-shadow: 0 5px 15px rgba( 56, 189, 248, 0.3);
 }
 
 .hero {
@@ -189,7 +186,6 @@ section {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
-
 }
 
 .social-links a {
@@ -222,14 +218,14 @@ section {
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--primary-color);
-    box-shadow: 0 0 25px rgba(255, 99, 245, 0.5);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
     transition: var(--transition);
-    object-position: center 5%;
+    object-position: center center;
 }
 
 .hero-image img:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 30px rgba( 108, 99, 255, .5);
+    box-shadow: 0 0 30px rgba( 56, 189, 248, 0.4);
 }
 
 .timeline {
@@ -276,11 +272,12 @@ section {
 .date {
     display: inline-block;
     padding: .3rem .8rem;
-    background-color: rgba(255, 99, 185, 0.3);
+    background-color: rgba(56, 189, 248, 0.15);
     color: var(--primary-color);
     border-radius: 5px;
     font-size: .9rem;
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .timeline-content h3 {
@@ -294,6 +291,7 @@ section {
     font-size:1rem;
     font-weight: 500;
 }
+
 .skills {
     display: flex;
     flex-wrap: wrap;
@@ -326,7 +324,7 @@ section {
 
 .education-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 30px rgba( 108, 99, 255, .5);
+    box-shadow: 0 0 30px rgba( 56, 189, 248, 0.4);
 }
 
 .education-img {
@@ -338,8 +336,8 @@ section {
     width: 100%;
 }
 
-.education-card:hover .prject.img img {
-    transform: scale(1.05)
+.education-card:hover .project-img img { /* Corregido .prject a .project */
+    transform: scale(1.05);
 }
 
 .education-info {
@@ -378,7 +376,6 @@ section {
 .education-links {
     display: flex;
     gap: 1rem;
-
 }
 
 .education-links a {
@@ -392,44 +389,45 @@ section {
 }
 
 .languages-section {
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center; 
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; 
 }
 
 .languages-section .section-title {
-  margin-bottom: 30px;
-  color: #333; 
+    margin-bottom: 30px;
+    color: #f5f5f5; /* Corregido de #333 a claro para contrastar con tu fondo oscuro */
 }
 
 .language-list {
-  list-style-type: none; 
-  padding: 0;
-  text-align: left; 
+    list-style-type: none; 
+    padding: 0;
+    text-align: left; 
 }
 
 .language-list li {
-  font-size: 1.1rem;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
-  color: #555; 
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color); /* Corregido #eee a tu borde oscuro */
+    color: var(--gray-text); /* Corregido #555 a tu texto gris */
 }
 
 .language-list li:last-child {
-  border-bottom: none; 
+    border-bottom: none; 
 }
 
 .language-name {
-  font-weight: bold;
-  color: #333; 
-  display: inline-block;
-  min-width: 120px;
+    font-weight: bold;
+    color: var(--light-text); /* Corregido #333 a tu texto claro */
+    display: inline-block;
+    min-width: 120px;
 }
+
 .footer {
     background-color: var(--darker-bg);
-    color: #f7f7f7
-    text-align; center;
+    color: #f7f7f7; /* Corregido falta de punto y coma */
+    text-align: center; /* Corregido text-align; a text-align: */
     border-top: 1px solid var(--border-color);
     padding: 2rem 5%;
 }
@@ -477,4 +475,13 @@ section {
     margin-top: 30px;
     font-size: 0.9rem;
     color: #999;
+}
+
+.feedback-message {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    min-height: 24px; 
 }
