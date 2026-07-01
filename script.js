@@ -5,7 +5,7 @@ function copiarAlPortapapeles(texto) {
     return navigator.clipboard.writeText(texto);
   }
 
-  // Fallback clásico: textarea temporal
+  
   return new Promise((resolve, reject) => {
     try {
       const textarea = document.createElement('textarea');
